@@ -2,10 +2,10 @@
 #ifndef FPOLYGON_H
 #define FPOLYGON_H
 
+#include"figure.h"
 
 
-
-class FPolygon
+class FPolygon:virtual public Figure
 {
 public:
     FPolygon();
