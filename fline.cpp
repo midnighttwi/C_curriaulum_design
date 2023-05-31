@@ -46,9 +46,11 @@ void FLine::setEnd(QPoint end)
 }
 int* FLine::getColor()//获取线颜色
 {
-
+    return color;
 }
 void FLine::setColor(int R,int G,int B)//设置线颜色
 {
-
+    this->color[0]=R;
+    this->color[1]=G;
+    this->color[2]=B;
 }
