@@ -5,4 +5,8 @@ Figure::Figure()
 {
 
 }
+Figure::~Figure()
+{
+
+}
 

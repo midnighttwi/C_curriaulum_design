@@ -17,6 +17,8 @@ public:
     double getY();
     void setX(double x);
     void setY(double y);
+    int* getColor();//获取线颜色
+    void setColor(int R,int G,int B);//设置线颜色
 private:
     double x;
     double y;

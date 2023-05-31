@@ -1,7 +1,9 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include<QImage>
+#include<QBitmap>
+#include<QPixmap>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -54,5 +56,6 @@ void MainWindow::connectSQL()
 
     //数据库关闭
     //db.close();
+
 }
 
