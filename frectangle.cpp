@@ -5,7 +5,7 @@ FRectangle::FRectangle()
 {
 
 }
-FRectangle::FRectangle(QPoint ul,QPoint lr,FRGB color,FRGB fill)
+FRectangle::FRectangle(QPointF ul,QPointF lr,int width,FPATTERN pattern,FRGB color,FRGB fill)
 {
     this->upperleft=ul;
     this->lowright=lr;
@@ -15,8 +15,11 @@ FRectangle::FRectangle(QPoint ul,QPoint lr,FRGB color,FRGB fill)
     this->fillcolor.R=fill.R;
     this->fillcolor.G=fill.G;
     this->fillcolor.B=fill.B;
+    this->width=width;
+    this->pattern=pattern;
+    this->type=FRECTANGLE;
 }
-FRectangle::FRectangle(double sx,double sy,double ex,double ey,FRGB color,FRGB fill)
+FRectangle::FRectangle(double sx,double sy,double ex,double ey,int width,FPATTERN pattern,FRGB color,FRGB fill)
 {
     this->upperleft.setX(sx);
     this->upperleft.setY(sy);
@@ -28,6 +31,9 @@ FRectangle::FRectangle(double sx,double sy,double ex,double ey,FRGB color,FRGB f
     this->fillcolor.R=fill.R;
     this->fillcolor.G=fill.G;
     this->fillcolor.B=fill.B;
+    this->width=width;
+    this->pattern=pattern;
+    this->type=FRECTANGLE;
 }
 FRectangle::FRectangle(FRectangle &rectangle)
 {
@@ -39,24 +45,27 @@ FRectangle::FRectangle(FRectangle &rectangle)
     this->fillcolor.R=rectangle.fillcolor.R;
     this->fillcolor.G=rectangle.fillcolor.G;
     this->fillcolor.B=rectangle.fillcolor.B;
+    this->type=rectangle.type;
+    this->width=rectangle.width;
+    this->pattern=rectangle.pattern;
 }
 FRectangle::~FRectangle()
 {
 
 }
-QPoint FRectangle::getUL()//获取左上角点
+QPointF FRectangle::getUL()//获取左上角点
 {
     return this->upperleft;
 }
-QPoint FRectangle::getLR()//获取右下角点
+QPointF FRectangle::getLR()//获取右下角点
 {
     return this->lowright;
 }
-void FRectangle::setUL(QPoint point)//设置左上角点
+void FRectangle::setUL(QPointF point)//设置左上角点
 {
     this->upperleft=point;
 }
-void FRectangle::setLR(QPoint point)//设置右下角点
+void FRectangle::setLR(QPointF point)//设置右下角点
 {
     this->lowright=point;
 }
@@ -79,4 +88,25 @@ void FRectangle::setColor(FRGB color)//设置线颜色
     this->color.R=color.R;
     this->color.G=color.G;
     this->color.B=color.B;
+}
+FIGURE_TYPE FRectangle::getType()
+{
+    return this->type;
+}
+FPATTERN FRectangle::getPat()//获取样式
+{
+    return this->pattern;
+}
+void FRectangle::setPat(FPATTERN pattern)//设置型号
+{
+    this->pattern=pattern;
+}
+int FRectangle::getWidth()
+{
+    return this->width;
+}
+
+void FRectangle::setWidth(int width)
+{
+    this->width=width;
 }

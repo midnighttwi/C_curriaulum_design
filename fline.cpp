@@ -6,15 +6,18 @@ FLine::FLine()
 
 }
 
-FLine::FLine(QPoint start,QPoint end,FRGB color)
+FLine::FLine(QPointF start,QPointF end,int width,FPATTERN pattern,FRGB color)
 {
     this->start=start;
     this->end=end;
     this->color.R=color.R;
     this->color.G=color.G;
     this->color.B=color.B;
+    this->pattern=pattern;
+    this->type=FLINE;
+    this->width=width;
 }
-FLine::FLine(double sx,double sy,double ex,double ey,FRGB color)
+FLine::FLine(double sx,double sy,double ex,double ey,int width,FPATTERN pattern,FRGB color)
 {
     this->start.setX(sx);
     this->start.setY(sy);
@@ -23,6 +26,8 @@ FLine::FLine(double sx,double sy,double ex,double ey,FRGB color)
     this->color.R=color.R;
     this->color.G=color.G;
     this->color.B=color.B;
+    this->pattern=pattern;
+    this->width=width;
 }
 FLine::FLine(FLine &line)
 {
@@ -31,24 +36,26 @@ FLine::FLine(FLine &line)
     this->color.R=line.color.R;
     this->color.G=line.color.G;
     this->color.B=line.color.B;
+    this->pattern=line.pattern;
+    this->width=line.width;
 }
 FLine::~FLine()
 {
 
 }
-QPoint FLine::getStart()
+QPointF FLine::getStart()
 {
     return start;
 }
-QPoint FLine::getEnd()
+QPointF FLine::getEnd()
 {
     return end;
 }
-void FLine::setStart(QPoint start)
+void FLine::setStart(QPointF start)
 {
     this->start=start;
 }
-void FLine::setEnd(QPoint end)
+void FLine::setEnd(QPointF end)
 {
     this->end=end;
 }
@@ -61,4 +68,33 @@ void FLine::setColor(FRGB color)//设置线颜色
     this->color.R=color.R;
     this->color.G=color.G;
     this->color.B=color.B;
+}
+FIGURE_TYPE FLine::getType()
+{
+    return this->type;
+}
+FPATTERN FLine::getPat()//获取样式
+{
+    return this->pattern;
+}
+void FLine::setPat(FPATTERN pattern)//设置型号
+{
+    this->pattern=pattern;
+}
+int FLine::getWidth()//获取线宽
+{
+    return this->width;
+}
+void FLine::setWidth(int width)//设置线宽
+{
+    this->width=width;
+}
+void FLine::setFillColor(FRGB fillcolor)//重写，空函数
+{
+    qDebug()<<"Line connot be fiiled with color"<<endl;
+    return;
+}
+FRGB FLine::getFillColor()//重写，空函数
+{
+    qDebug()<<"Line connot be fiiled with color"<<endl;
 }

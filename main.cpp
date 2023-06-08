@@ -1,15 +1,38 @@
 
 #include "mainwindow.h"
 #include <QApplication>
-
+#include"cov_control.h"
+//int main(int argc, char *argv[])
+//{
+//    QApplication a(argc, argv);
+//    MainWindow w;
+//    w.show();
+//    return a.exec();
+//}
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    const QString file="C:/Users/86153/Desktop/test_gro.txt";
+    Cov_control cover;
+    vector<Coverage> cov;
+    cover.loadfile(file,cov);
+    for (int var = 0; var < cov.size(); ++var)
+    {
+        if(cov.at(var).cov_type==COV_POLYGON)
+        {
+            qDebug()<<1<<" : "<<var<<endl;
+
+            qDebug()<<"num"<<" : "<<endl;
+            for(int i=0;i<cov.at(var).fpos.size();i++)
+            {
+            qDebug()<<"figure_pos"<<" : "<<cov.at(var).fpos.at(i)<<endl;
+            }
+        }
+    }
+    const QString outfile="C:/Users/86153/Desktop/test_gro_out.txt";
+    cover.savefile(outfile,cov);
 }
 
+//连接数据库
 //int main(int argc, char *argv[])
 //{
 //    //数据库配置

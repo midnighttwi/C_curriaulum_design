@@ -1,0 +1,12 @@
+
+#ifndef CONSTTYPE_H
+#define CONSTTYPE_H
+
+
+#include <cmath>
+
+enum COVERAGE_TYPE{COV_POINT,COV_LINE,COV_CIRCLE,COV_POLYGON,COV_POLYLINE,COV_RECTANGLE};//图层存储的图元类型
+enum FIGURE_TYPE{FPOINT,FLINE,FCIRCLE,FPOLYGON,FPOLYLINE,FRECTANGLE};//图元类型
+enum FPATTERN {P_CIRCLE,P_SQUARE,L_FULL,L_DOTTED};//点的样式（目前写了两种，根据需求更改）（圆点、方点）;线的样式（目前也是两种）（实线、虚线）
+enum FILE_TYPE{FTXT,SHP};//文件类型
+#endif // CONSTTYPE_H

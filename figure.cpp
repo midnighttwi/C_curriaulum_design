@@ -9,4 +9,3 @@ Figure::~Figure()
 {
 
 }
-
